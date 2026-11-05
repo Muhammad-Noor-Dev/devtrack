@@ -1,16 +1,97 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# DevTrack — Job Application Tracker
 
-Currently, two official plugins are available:
+DevTrack is a responsive job application tracking web application built with React and JavaScript.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+It helps users organize their job search by keeping track of companies, job positions, application dates and application statuses.
 
-## React Compiler
+## Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Add new job applications
+- Edit existing applications
+- Delete applications
+- Dashboard with application statistics
+- Search by company name and job title
+- Filter applications by status
+- Persistent data using browser Local Storage
+- Responsive design for desktop and mobile
+- Direct links to job postings
 
-## Expanding the ESLint configuration
+## Technologies Used
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- React
+- JavaScript
+- Vite
+- CSS3
+- Browser Local Storage
+- Git and GitHub
+
+## Installation
+
+Clone the repository:
+
+```bash
+git clone https://github.com/Muhammad-Noor-Dev/devtrack.git
+```
+
+Navigate to the project:
+
+```bash
+cd devtrack
+```
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Start the development server:
+
+```bash
+npm run dev
+```
+
+## Production Build
+
+```bash
+npm run build
+```
+
+## Data Storage
+
+DevTrack uses browser Local Storage to save application information.
+
+No external database or backend is required.
+
+Data is stored locally in the user's browser and is not synchronized between devices.
+
+## Live Demo
+
+Add your deployed website link here.
+
+## Screenshots
+
+### Dashboard
+![Dashboard](public/Screenshots/Dashboard.png)
+
+### Applications
+![Applications](public/Screenshots/Applications.png)
+
+### Search and Filter
+![Search and Filter](public/Screenshots/Search.png)
+
+## Future Improvements
+
+- User authentication
+- Backend integration
+- PostgreSQL database
+- Application reminders
+- Data export
+- Application analytics
+
+## Author
+
+Muhammad Noor
+
+GitHub: https://github.com/Muhammad-Noor-Dev
