@@ -7,7 +7,7 @@ function ApplicationList({
     return (
       <section className="applications-section">
         <h2>Your Applications</h2>
-        <p>No applications yet. Add your first one!</p>
+        <p>No applications found.</p>
       </section>
     );
   }
