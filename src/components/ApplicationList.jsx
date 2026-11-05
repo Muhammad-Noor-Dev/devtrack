@@ -1,3 +1,4 @@
+
 function ApplicationList({
   applications,
   deleteApplication,
@@ -7,71 +8,80 @@ function ApplicationList({
     return (
       <section className="applications-section">
         <h2>Your Applications</h2>
-        <p>No applications found.</p>
+
+        <div className="empty-state">
+          <h3>No applications found</h3>
+          <p>Try another search or add a new job application.</p>
+        </div>
       </section>
     );
   }
 
   return (
     <section className="applications-section">
-      <h2>Your Applications</h2>
+      <div className="section-heading">
+        <div>
+          <h2>Your Applications</h2>
+          <p>{applications.length} applications found</p>
+        </div>
+      </div>
 
       <div className="applications-list">
         {applications.map((application) => (
-          <div key={application.id} className="application-card">
-            <h3>{application.company}</h3>
+          <article className="application-card" key={application.id}>
+            <div className="application-top">
+              <div>
+                <h3>{application.company}</h3>
+                <p>{application.jobTitle}</p>
+              </div>
 
-            <p>
-              <strong>Job:</strong> {application.jobTitle}
-            </p>
+              <span
+                className={`status-badge ${application.status.toLowerCase()}`}
+              >
+                {application.status}
+              </span>
+            </div>
 
-            <p>
-              <strong>Location:</strong>{" "}
-              {application.location || "Not provided"}
-            </p>
-
-            <p>
-              <strong>Date:</strong> {application.date || "Not provided"}
-            </p>
-
-            <p>
-              <strong>Status:</strong> {application.status}
-            </p>
+            <div className="application-details">
+              <span>📍 {application.location || "Location not provided"}</span>
+              <span>📅 {application.date || "Date not provided"}</span>
+            </div>
 
             {application.notes && (
-              <p>
-                <strong>Notes:</strong> {application.notes}
-              </p>
+              <p className="application-notes">{application.notes}</p>
             )}
 
             {application.jobLink && (
-              <p>
-                <a
-                  href={application.jobLink}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  View Job Posting
-                </a>
-              </p>
+              <a
+                href={application.jobLink}
+                target="_blank"
+                rel="noreferrer"
+                className="job-link"
+              >
+                View Job Posting ↗
+              </a>
             )}
 
             <div className="button-group">
               <button
-                onClick={() => startEditing(application)}
                 className="edit-button"
+                onClick={() => startEditing(application)}
               >
                 Edit
               </button>
 
               <button
-                onClick={() => deleteApplication(application.id)}
                 className="delete-button"
+                onClick={() => {
+                  if (window.confirm("Delete this application?")) {
+                    deleteApplication(application.id);
+                  }
+                }}
               >
                 Delete
               </button>
             </div>
-          </div>
+          </article>
         ))}
       </div>
     </section>

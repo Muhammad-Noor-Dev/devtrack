@@ -1,48 +1,43 @@
+
 function Stats({ applications }) {
   const total = applications.length;
 
   const applied = applications.filter(
-    (application) => application.status === "Applied"
+    (app) => app.status === "Applied"
   ).length;
 
   const interview = applications.filter(
-    (application) => application.status === "Interview"
+    (app) => app.status === "Interview"
   ).length;
 
   const rejected = applications.filter(
-    (application) => application.status === "Rejected"
+    (app) => app.status === "Rejected"
   ).length;
 
   const offer = applications.filter(
-    (application) => application.status === "Offer"
+    (app) => app.status === "Offer"
   ).length;
+
+  const stats = [
+    { label: "Total Applications", value: total, color: "blue" },
+    { label: "Applied", value: applied, color: "purple" },
+    { label: "Interviews", value: interview, color: "orange" },
+    { label: "Offers", value: offer, color: "green" },
+    { label: "Rejected", value: rejected, color: "red" },
+  ];
 
   return (
     <section className="stats-section">
-      <div className="stat-card">
-        <span>Total</span>
-        <strong>{total}</strong>
-      </div>
+      {stats.map((stat) => (
+        <div className="stat-card" key={stat.label}>
+          <div className={`stat-icon ${stat.color}`}>
+            {stat.label.charAt(0)}
+          </div>
 
-      <div className="stat-card">
-        <span>Applied</span>
-        <strong>{applied}</strong>
-      </div>
-
-      <div className="stat-card">
-        <span>Interview</span>
-        <strong>{interview}</strong>
-      </div>
-
-      <div className="stat-card">
-        <span>Rejected</span>
-        <strong>{rejected}</strong>
-      </div>
-
-      <div className="stat-card">
-        <span>Offers</span>
-        <strong>{offer}</strong>
-      </div>
+          <p>{stat.label}</p>
+          <h2>{stat.value}</h2>
+        </div>
+      ))}
     </section>
   );
 }

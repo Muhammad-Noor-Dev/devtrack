@@ -1,15 +1,34 @@
+
 * {
   box-sizing: border-box;
 }
 
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background-color: #f7f7f7;
+html {
+  min-width: 320px;
 }
 
-button {
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  font-family: Inter, Arial, sans-serif;
+  background: #f4f6fb;
+  color: #172033;
+}
+
+button,
+input,
+select,
+textarea {
   font-family: inherit;
+}
+
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid #4776e6;
+  outline-offset: 2px;
 }
 
 a {
